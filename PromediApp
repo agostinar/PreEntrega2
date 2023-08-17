@@ -1,0 +1,36 @@
+//app calculadora de promedios para profesores 
+// Función para calcular el promedio de un array de notas
+function calcularPromedio(notas) {
+  let suma = notas.reduce((total, nota) => total + nota, 0);
+  return suma / notas.length;
+}
+
+// Función para encontrar la nota más alta en un array de notas
+function encontrarNotaMaxima(notas) {
+  return Math.max(...notas);
+}
+
+// Función para filtrar las notas que son mayores que un valor dado
+function filtrarNotasMayores(notas, valor) {
+  return notas.filter(nota => nota > valor);
+}
+
+// App principal
+alert("Bienvenido a PromediApp");
+
+let notas = [];
+let cantidadNotas = parseInt(prompt("Ingrese la cantidad de notas"));
+
+for (let i = 0; i < cantidadNotas; i++) {
+  notas.push(parseFloat(prompt(`Ingrese la nota ${i + 1}`)));
+}
+
+let promedio = calcularPromedio(notas);
+let notaMaxima = encontrarNotaMaxima(notas);
+let valorFiltro = parseFloat(prompt("Ingrese un valor para filtrar notas mayores:"));
+let notasFiltradas = filtrarNotasMayores(notas, valorFiltro);
+
+alert(`Notas ingresadas: ${notas.join(", ")}`);
+alert(`El promedio de las notas es: ${promedio}`);
+alert(`La nota más alta es: ${notaMaxima}`);
+alert(`Notas mayores a ${valorFiltro}: ${notasFiltradas.join(", ")}`);
